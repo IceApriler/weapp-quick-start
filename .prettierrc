@@ -1,0 +1,14 @@
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": false,
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": "src/**/*.wxml",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ]
+}
