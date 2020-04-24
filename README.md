@@ -29,5 +29,3 @@
 - 更新[配置文件](src/config.js)的`version`版本号。
 - 修改[配置文件](src/config.js)的`isProd`，`true`表示生产环境。
 - 修改[配置文件](src/config.js)的`versionDesc`，完善当前版本的说明。
-- `yarn u` 或者 `npm run u` 上传代码。
-> `yarn u` 会自动以[配置文件](src/config.js)中的`versionDesc`为描述，并附加环境信息。
