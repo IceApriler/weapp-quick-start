@@ -103,9 +103,9 @@ npm run gulp -- comp --name number-input --path input # 自定义路径: 在src/
 
 ## 项目技术栈
 
-- [vue: 官方文档](https://cn.vuejs.org/index.html) vue。
-- [ant-design-vue: 官方文档](https://antdv.com/docs/vue/introduce-cn/) ant-design-vue UI组件库。
-- [axios: Github](https://github.com/axios/axios) axios请求库。
-- [moment: Github](https://github.com/moment/moment) 日期格式化库，`ant-design-vue`的日期组件需要。
-- [nprogress: Github](https://github.com/rstacruz/nprogress) 页面进度条状态库。
+- [微信小程序: 官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/) 微信小程序。
+- [@vant/weapp](https://youzan.github.io/vant-weapp/#/intro) 有赞UI组件库。
+- [miniprogram-api-promise](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/api-promise.html) 扩展微信小程序api支持promise。
+- [mobx-miniprogram](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/mobx.html) 小程序的 MobX 绑定辅助库，实现全局状态管理。
+- [miniprogram-computed](https://developers.weixin.qq.com/miniprogram/dev/extended/utils/computed.html) 小程序的computed实现，有限制。
 - [prettier: Github](https://github.com/prettier/prettier) 代码美化工具。
