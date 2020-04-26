@@ -90,6 +90,31 @@ gulp.task('comp', function (done) {
 })
 
 /**
+ * 执行命令行
+ * @param {String}} cmd 命令
+ */
+function exec(cmd) {
+  const cliback = child_process.exec(cmd)
+  console.log(`[执行脚本] ${cmd}`)
+  cliback.stdout.on('data', (data) => {
+    const lines = data
+      .toString()
+      .split(/[\n|\r\n]/)
+      .filter((i) => i)
+    const contents = lines.join('\r\n')
+    console.log(contents)
+  })
+  cliback.stderr.on('data', (data) => {
+    const lines = data
+      .toString()
+      .split(/[\n|\r\n]/)
+      .filter((i) => i)
+    const contents = lines.join('\r\n')
+    console.log(contents)
+  })
+}
+
+/**
  * 复制node_modules包和package.json到src
  */
 gulp.task('generate:package', function (done) {
@@ -115,24 +140,41 @@ gulp.task('generate:package', function (done) {
         console.error(err)
       }
       // npm i
-      const cliback = child_process.exec(`cd ${config.srcPath} && npm i`)
-      console.log(`[执行脚本] cd ${config.srcPath} && npm i`)
-      cliback.stdout.on('data', (data) => {
-        const lines = data
-          .toString()
-          .split(/[\n|\r\n]/)
-          .filter((i) => i)
-          const contents = lines.join('\r\n')
-        console.log(contents)
-      })
-      cliback.stderr.on('data', (data) => {
-        const lines = data
-          .toString()
-          .split(/[\n|\r\n]/)
-          .filter((i) => i)
-          const contents = lines.join('\r\n')
-        console.log(contents)
-      })
+      exec(`cd ${config.srcPath} && npm i`)
+    })
+  })
+  done()
+})
+
+gulp.task('check:package', function (done) {
+  // 读取./package.json - dependencies
+  fs.readFile(path.resolve(config.rootPath, 'package.json'), function (
+    err,
+    data,
+  ) {
+    if (err) {
+      return console.error(err)
+    }
+    const dataJson = JSON.parse(data.toString())
+    // 读取src/package.json - dependencies
+    fs.readFile(path.resolve(config.srcPath, 'package.json'), function (
+      err,
+      data,
+    ) {
+      if (err) {
+        return console.error(err)
+      }
+      const weappDataJson = JSON.parse(data.toString())
+      console.log(
+        JSON.stringify(dataJson.dependencies) !==
+          JSON.stringify(weappDataJson.dependencies),
+      )
+      if (
+        JSON.stringify(dataJson.dependencies) !==
+        JSON.stringify(weappDataJson.dependencies)
+      ) {
+        exec('gulp generate:package')
+      }
     })
   })
   done()
