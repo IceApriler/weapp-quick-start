@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"gulp\" \"npm run lint-fix\" \"npm run lint-watch\" ",
-    "lint-watch": "onchange 'src/**/*.js' 'src/**/*.scss' 'src/**/*.wxml' 'src/**/*.json' -- prettier --write {{changed}}",
-    "lint-fix": "prettier --write \"{src,template}/**/*.{js, scss, json, wxml}\" "
+    "lint-watch": "onchange \"src/**/*.js\" \"src/**/*.scss\" \"src/**/*.wxml\" \"src/**/*.json\" -- prettier --write {{changed}}",
+    "lint-fix": "prettier --write \"{src,template}/**/*.{js, scss, json, wxml}\" ",
+    "page": "gulp page",
+    "comp": "gulp comp"
   },
   "author": "",
   "devDependencies": {

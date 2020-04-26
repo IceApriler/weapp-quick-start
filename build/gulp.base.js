@@ -61,7 +61,7 @@ gulp.task('page', function (done) {
       }),
     )
     .pipe(gulp.dest(utils.makeGlob(`${config.srcPath}/pages/${destPath}/`)))
-  addPathToAppJson(path.join(`pages/${destPath}/${name}`))
+  addPathToAppJson(path.join(`pages/${destPath}/${name}`).split(path.sep).join('/'))
   done()
 })
 

@@ -1,8 +1,5 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/test/test"
-  ],
+  "pages": ["pages/index/index", "pages/test/test"],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "weapp-quick-start",
