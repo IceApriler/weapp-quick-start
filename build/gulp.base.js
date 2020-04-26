@@ -4,6 +4,7 @@ const fs = require('fs-extra')
 const sass = require('gulp-sass')
 const rename = require('gulp-rename')
 const minimist = require('minimist')
+const child_process = require('child_process')
 const config = require('./gulp.config')
 const utils = require('./gulp.utils')
 
@@ -61,7 +62,9 @@ gulp.task('page', function (done) {
       }),
     )
     .pipe(gulp.dest(utils.makeGlob(`${config.srcPath}/pages/${destPath}/`)))
-  addPathToAppJson(path.join(`pages/${destPath}/${name}`).split(path.sep).join('/'))
+  addPathToAppJson(
+    path.join(`pages/${destPath}/${name}`).split(path.sep).join('/'),
+  )
   done()
 })
 
@@ -80,7 +83,58 @@ gulp.task('comp', function (done) {
         path.basename = name
       }),
     )
-    .pipe(gulp.dest(utils.makeGlob(`${config.srcPath}/components/${destPath}/`)))
+    .pipe(
+      gulp.dest(utils.makeGlob(`${config.srcPath}/components/${destPath}/`)),
+    )
+  done()
+})
+
+/**
+ * 复制node_modules包和package.json到src
+ */
+gulp.task('generate:package', function (done) {
+  // 读取package.json - dependencies
+  fs.readFile(path.resolve(config.rootPath, 'package.json'), function (
+    err,
+    data,
+  ) {
+    if (err) {
+      return console.error(err)
+    }
+    const dataJson = JSON.parse(data.toString())
+    const weappPackageJson = {
+      description: 'Generate by npm script: `npm run generate:package`.',
+      dependencies: dataJson.dependencies,
+    }
+    const str = JSON.stringify(weappPackageJson, null, 2)
+    // 生成新的package.json
+    fs.writeFile(path.resolve(config.srcPath, 'package.json'), str, function (
+      err,
+    ) {
+      if (err) {
+        console.error(err)
+      }
+      // npm i
+      const cliback = child_process.exec(`cd ${config.srcPath} && npm i`)
+      console.log(`[执行脚本] cd ${config.srcPath} && npm i`)
+      cliback.stdout.on('data', (data) => {
+        const lines = data
+          .toString()
+          .split(/[\n|\r\n]/)
+          .filter((i) => i)
+          const contents = lines.join('\r\n')
+        console.log(contents)
+      })
+      cliback.stderr.on('data', (data) => {
+        const lines = data
+          .toString()
+          .split(/[\n|\r\n]/)
+          .filter((i) => i)
+          const contents = lines.join('\r\n')
+        console.log(contents)
+      })
+    })
+  })
   done()
 })
 

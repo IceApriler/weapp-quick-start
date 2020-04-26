@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"gulp\" \"npm run lint-fix\" \"npm run lint-watch\" ",
-    "lint-watch": "onchange \"src/**/*.js\" \"src/**/*.scss\" \"src/**/*.wxml\" \"src/**/*.json\" -- prettier --write {{changed}}",
+    "lint-watch": "onchange \"src/**/*.js\" \"src/**/*.scss\" \"src/**/*.wxml\" \"src/**/*.json\" -e \"{miniprogram_npm,node_modules}\" -- prettier --write {{changed}}",
     "lint-fix": "prettier --write \"{src,template}/**/*.{js, scss, json, wxml}\" ",
     "page": "gulp page",
-    "comp": "gulp comp"
+    "comp": "gulp comp",
+    "generate:package": "gulp generate:package",
+    "postinstall": "npm run generate:package",
+    "postuninstall": "npm run generate:package"
   },
   "author": "",
   "devDependencies": {

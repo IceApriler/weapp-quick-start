@@ -4,3 +4,4 @@ node_modules
 
 # 生成的文件
 *.wxss
+miniprogram_npm
