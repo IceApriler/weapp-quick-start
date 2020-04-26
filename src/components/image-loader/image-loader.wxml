@@ -1,0 +1,20 @@
+<view class="container">
+  <!-- 默认图片 -->
+  <image
+    class="image"
+    hidden="{{showImage}}"
+    src="{{defaultImageSrc}}"
+    mode="{{mode}}"
+    lazy-load="{{lazyLoad}}"
+  ></image>
+  <!-- 业务图片 -->
+  <image
+    class="image"
+    hidden="{{!showImage}}"
+    src="{{src}}"
+    mode="{{mode}}"
+    lazy-load="{{lazyLoad}}"
+    binderror="onError"
+    bindload="onLoad"
+  ></image>
+</view>

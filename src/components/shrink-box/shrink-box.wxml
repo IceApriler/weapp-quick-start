@@ -1,0 +1,5 @@
+<view class="container qy-outer-class" animation="{{animationData}}">
+  <view class="qy-inner-class" id="inner">
+    <slot></slot>
+  </view>
+</view>
