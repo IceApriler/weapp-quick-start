@@ -32,6 +32,7 @@ git clone http://my-project.git # 克隆新项目至本地
 
 ### 三、配置项目
 
+- [/src/config/index](/src/config/index.js) 项目配置文件，配置`baseApi`。
 
 <!-- 构建帮助 end -->
 
@@ -48,12 +49,13 @@ git clone http://my-project.git # 克隆新项目至本地
 
 ## 安装并运行
 
-```bash
-npm install # 安装环境依赖
-npm run dev # 进入开发模式
-```
-
-将微信小程序的项目目录设置为根目录。
+- 安装依赖并运行。
+  ```bash
+  npm install # 安装环境依赖
+  npm run dev # 进入开发模式
+  ```
+- 打开微信开发者工具，导入项目，目录设置为本项目的根目录。
+- 工具 > 构建npm。
 
 ## 开发指南
 
@@ -79,9 +81,29 @@ npm run gulp -- comp --name number-input --path input # 自定义路径: 在src/
 ## 上线指南
 
 - 更新[配置文件](src/config.js)的`version`版本号。
-- 修改[配置文件](src/config.js)的`isProd`，`true`表示生产环境。
 - 修改[配置文件](src/config.js)的`versionDesc`，完善当前版本的说明。
 
 ## 测试指南
 
-- 使用体验版测试。
+- 可以使用体验版测试小程序。
+
+## 目录规范
+
+- [/src/api](/src/api/index.js) api集合，request封装。
+- [/src/config](/src/config/index.js) 项目配置。
+- [/src/templates](/src/templates/) 小程序模板，可以复用页面。
+- [/src/components](/src/components/) 小程序自定义组件，适合抽离具有复用价值的组件。
+- [/src/libs](/src/libs/) 引入的第三方库。
+- [/src/utils](/src/utils/) 自己封装的工具方法。
+- [/src/constant](/src/constant/) 可以放项目中需要的 常量、Map、枚举等。
+- [/src/images](/src/images/) icon、图片。共享、可复用的图片等可以放在根目录；基本不会复用的建议根据功能分类新建二级目录存放图片。
+- [/src/styles](/src/styles/) 抽离的样式。
+
+## 项目技术栈
+
+- [vue: 官方文档](https://cn.vuejs.org/index.html) vue。
+- [ant-design-vue: 官方文档](https://antdv.com/docs/vue/introduce-cn/) ant-design-vue UI组件库。
+- [axios: Github](https://github.com/axios/axios) axios请求库。
+- [moment: Github](https://github.com/moment/moment) 日期格式化库，`ant-design-vue`的日期组件需要。
+- [nprogress: Github](https://github.com/rstacruz/nprogress) 页面进度条状态库。
+- [prettier: Github](https://github.com/prettier/prettier) 代码美化工具。
