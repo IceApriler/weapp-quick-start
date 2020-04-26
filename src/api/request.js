@@ -1,7 +1,7 @@
 import config from '../config'
 
 /** request请求封装 */
-function request(method, url, params = {}, reqConfig) {
+export default function request(method, url, params = {}, reqConfig) {
   const {
     showLoading = true,
     showToast = true,
