@@ -1,11 +1,18 @@
 {
-  "pages": ["pages/index/index", "pages/test/test"],
+  "pages": ["pages/login/login"],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "weapp-quick-start",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
+  "usingComponents": {},
+  "subPackages": [
+    {
+      "root": "pages/user/",
+      "pages": []
+    }
+  ],
   "networkTimeout": {
     "request": 10000,
     "connectSocket": 10000,

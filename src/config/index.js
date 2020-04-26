@@ -9,6 +9,7 @@ const config = {
   version: '1.0.0',
   versionDesc: '',
   rootUrl: isProd ? '' : isMock ? '' : '',
+  tabBarUrlList: [],
 }
 
 export default config
