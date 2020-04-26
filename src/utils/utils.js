@@ -1,4 +1,5 @@
-import config from '../config'
+import config from '../config/index'
+import { promisifyAll } from 'miniprogram-api-promise'
 const { tabBarUrlList } = config
 const systemInfo = wx.getSystemInfoSync()
 
@@ -115,3 +116,19 @@ export function debounce(callback, ctx, delay = 600) {
     timeoutID = setTimeout(callback.bind(ctx, ...arg), delay)
   }
 }
+
+/**
+ * 获取小程序的环境
+ * @returns {String} env "release" | "trial" | "develop"
+ */
+export function getWeappEnv() {
+  return typeof __wxConfig !== 'undefined'
+    ? __wxConfig.envVersion || 'release'
+    : 'release'
+}
+
+/**
+ * 扩展微信小程序api支持promise
+ */
+export const wxp = {}
+promisifyAll(wx, wxp)
