@@ -13,15 +13,6 @@
 
 ### 二、使用模板
 
-#### 方式一
-```bash
-git clone http://211.90.39.175:8187/front_group/weapp-quick-start.git my-project --depth=1 # 克隆至本地并重命名为my-project
-cd my-project # 进入项目
-git remote set-url origin http://my-project.git # 将my-project文件夹的远程地址修改为对应的新项目地址
-git remote -v # 检查一下远程仓库是否正确
-```
-
-#### 方式二
 ```bash
 git clone http://211.90.39.175:8187/front_group/weapp-quick-start.git # 克隆weapp-quick-start至本地
 git clone http://my-project.git # 克隆新项目至本地
@@ -33,6 +24,8 @@ git clone http://my-project.git # 克隆新项目至本地
 ### 三、配置项目
 
 - [/src/config/index](/src/config/index.js) 项目配置文件，配置`baseApi`。
+- 全局检索`weapp-quick-start`，将该名称替换为新项目的名称。
+- 删除你现在正在浏览的`开始创建新项目(构建帮助)`的内容后，就可以自由修改本readme了，正式开始新的项目开发🤨。
 
 <!-- 构建帮助 end -->
 
