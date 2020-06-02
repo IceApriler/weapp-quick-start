@@ -9,12 +9,12 @@
 
 ### 一、创建仓库
 
-在[`Gitlab`](http://211.90.39.175:8187/)创建一个新的项目，假设新项目名为`my-project`, 获取到项目的地址为`http://my-project.git`。
+在[`Gitlab`](http://10.10.10.10/)创建一个新的项目，假设新项目名为`my-project`, 获取到项目的地址为`http://my-project.git`。
 
 ### 二、使用模板
 
 ```bash
-git clone http://211.90.39.175:8187/front_group/weapp-quick-start.git # 克隆weapp-quick-start至本地
+git clone git@github.com:IceApriler/weapp-quick-start.git # 克隆weapp-quick-start至本地
 git clone http://my-project.git # 克隆新项目至本地
 ```
 将`weapp-quick-start`中的所有文件（**.git除外**），复制到新项目`my-project`中，然后将提交代码至远程仓库。
