@@ -9,13 +9,13 @@ const weappEnv = getWeappEnv()
 /** api */
 const baseApi = {
   /** 正式版环境 */
-  release: 'http://10.10.10.10:80/fupin',
+  release: 'http://10.10.10.10:80',
 
   /** 体验版环境 */
-  trial: 'http://10.10.10.10:80/fupin',
+  trial: 'http://10.10.10.10:80',
 
   /** 开发版环境 */
-  develop: 'http://10.10.10.10:80/fupin',
+  develop: 'http://10.10.10.10:80',
 }
 
 const config = {
