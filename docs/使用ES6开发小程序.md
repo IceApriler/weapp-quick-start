@@ -172,7 +172,7 @@
          age, // 同名可以省略。
          address,
          latitude,
-         longitude，
+         longitude,
          id: 1, // 不同名的正常写法，不可以省略。
          nickName: name, 
        }
@@ -249,7 +249,7 @@
    
    // 张三丰的孪生兄弟，张五丰
    const zwf = {
-     ...ellon,
+     ...zsf,
      name: '张五丰'
    }
    
