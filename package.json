@@ -27,7 +27,7 @@
     "prettier": "2.0.5"
   },
   "dependencies": {
-    "@vant/weapp": "^1.2.2",
+    "@vant/weapp": "^1.5.3",
     "miniprogram-api-promise": "^1.0.4",
     "miniprogram-computed": "^2.1.1",
     "mobx-miniprogram": "^4.13.2",
