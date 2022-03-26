@@ -21,7 +21,7 @@
     "gulp-if": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.1.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "node-sass": "^7.0.0",
     "onchange": "^6.1.1",
     "prettier": "2.0.5"
